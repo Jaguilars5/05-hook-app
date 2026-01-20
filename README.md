@@ -1,75 +1,91 @@
-# 🎣 React Hooks - Prácticas
+# 🎣 React Hooks - Practice & Examples
 
-Colección completa de ejercicios y ejemplos prácticos sobre React Hooks, desde conceptos básicos hasta patrones avanzados de optimización.
+A comprehensive collection of React Hooks exercises and practical examples, from basic concepts to advanced optimization patterns.
 
-> 🎓 **Curso**: React de Cero a Experto (Hooks y MERN) - [Fernando Herrera](https://fernando-herrera.com/) | [DevTalles](https://cursos.devtalles.com/)  
-> 📖 [Ver información detallada del curso](CURSO.md)
+> 🎓 **Course**: React de Cero a Experto (Hooks y MERN) - [Fernando Herrera](https://fernando-herrera.com/) | [DevTalles](https://cursos.devtalles.com/)  
+> 📖 [Ver documentación en Español](./docs/README_ES.md) | 📚 [Course Information](./docs/COURSE.md)
 
-## 📋 Tabla de Contenidos
+## 📋 Table of Contents
 
-- [Descripción](#descripción)
-- [Tecnologías](#tecnologías)
-- [Instalación](#instalación)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Prácticas Incluidas](#prácticas-incluidas)
-- [Scripts Disponibles](#scripts-disponibles)
-- [Testing](#testing)
-- [Información del Curso](CURSO.md)
+- [📚 Additional Documentation](#-additional-documentation)
+- [🚀 Description](#-description)
+- [🛠️ Technologies](#️-technologies)
+- [📦 Installation](#-installation)
+- [📁 Project Structure](#-project-structure)
+- [📚 Practices Included](#-practices-included)
+- [🎯 Available Scripts](#-available-scripts)
+- [🧪 Testing](#-testing)
+- [👨‍💻 Author & Credits](#-author--credits)
 
-## 🚀 Descripción
+## 📚 Additional Documentation
 
-Este proyecto contiene los ejercicios y prácticas realizados durante el curso de React de **Fernando Herrera**. Es una colección de ejemplos prácticos que demuestran el uso de diferentes React Hooks, desde conceptos básicos hasta patrones avanzados de optimización. Cada módulo se enfoca en un hook específico o concepto de React, proporcionando implementaciones reales y casos de uso.
+- 🎓 **[Course Information](./docs/COURSE.md)** - Detailed course information in English
+- 🎓 **[Información del Curso](./docs/CURSO.md)** - Información detallada del curso en Español
+- 📘 **[User Guide](./docs/USER_GUIDE.md)** - Complete usage guide in English
+- 📘 **[Guía de Uso](./docs/GUIA_USO.md)** - Guía de uso completa en Español
+- 🗂️ **[Project Structure](./docs/PROJECT_STRUCTURE.md)** - Detailed project structure in English
+- 🗂️ **[Estructura del Proyecto](./docs/ESTRUCTURA.md)** - Estructura detallada en Español
+- 🌐 **[Documentación Completa en Español](./docs/README_ES.md)** - Full documentation in Spanish
 
-> **Nota**: Este código es resultado de seguir el curso de React Hooks. Los ejercicios originales fueron creados por Fernando Herrera como material educativo.
+## 🚀 Description
 
-## 🛠️ Tecnologías
+This project contains exercises and practices from **Fernando Herrera's** React course. It's a collection of practical examples demonstrating the use of different React Hooks, from basic concepts to advanced optimization patterns. Each module focuses on a specific hook or React concept, providing real implementations and use cases.
 
-- **React** 18.2.0 - Librería principal
-- **React Router DOM** 6.22.0 - Navegación entre prácticas
-- **Vite** - Build tool y dev server
-- **Jest** - Framework de testing
-- **React Testing Library** - Testing de componentes
+> **Note**: This code is the result of following the React Hooks course. The original exercises were created by Fernando Herrera as educational material.
 
-## 📦 Instalación
+## 🛠️ Technologies
+
+- **React** 18.2.0 - Main library
+- **React Router DOM** 6.22.0 - Navigation between practices
+- **Vite** 5.0.12 - Build tool and dev server
+- **Jest** 29.7.0 - Testing framework
+- **React Testing Library** 14.2.1 - Component testing
+- **Babel** 7.23.9 - JavaScript compiler
+
+## 📦 Installation
 
 ```bash
-# Clonar el repositorio
+# Clone the repository
 git clone https://github.com/Jaguilars5/05-hoock-app.git
 
-# Entrar al directorio
+# Enter the directory
 cd 05-hoock-app
 
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Iniciar servidor de desarrollo
+# Start development server
 npm run dev
 ```
 
-## 📁 Estructura del Proyecto
+The application will open at `http://localhost:5173`
+
+## 📁 Project Structure
 
 ```
 src/
-├── 01-useState/              # Estado básico y custom hooks
-├── 02-useEffect/             # Efectos secundarios y ciclo de vida
-├── 03-examples/              # Ejemplos con múltiples hooks
-├── 04-useRef/                # Referencias al DOM
+├── 01-useState/              # Basic state and custom hooks
+├── 02-useEffect/             # Side effects and lifecycle
+├── 03-examples/              # Examples with multiple hooks
+├── 04-useRef/                # DOM references
 ├── 05-useLayoutEffect/       # Layout effects
-├── 06-memos/                 # Optimización con memoización
-├── 07-tarea-memo/            # Ejercicio práctico de optimización
-├── 08-useReducer/            # Gestión de estado complejo
-├── 09-useContext/            # Contexto global
-├── hooks/                    # Custom hooks reutilizables
+├── 06-memos/                 # Optimization with memoization
+├── 07-tarea-memo/            # Optimization practical exercise
+├── 08-useReducer/            # Complex state management
+├── 09-useContext/            # Global context
+├── hooks/                    # Reusable custom hooks
 │   ├── useCounter.js
 │   ├── useFetch.js
 │   ├── useForm.js
 │   └── useTodo.js
-├── components/               # Componentes compartidos
-├── LandingPage.jsx           # Página principal
-└── AppRouter.jsx             # Configuración de rutas
+├── components/               # Shared components
+├── LandingPage.jsx           # Main page
+└── AppRouter.jsx             # Route configuration
 ```
 
-## 📚 Prácticas Incluidas
+For a complete directory tree, see [Project Structure](./docs/PROJECT_STRUCTURE.md).
+
+## 📚 Practices Included
 
 ### 1️⃣ useState
 
@@ -86,124 +102,133 @@ src/
 
 ### 3️⃣ Multiple Custom Hooks
 
-- **MultipleCustomHooks**: Integración con API de Rick & Morty
-- **CharacterCard**: Tarjeta de personaje
-- **Loading**: Estado de carga
-- **Conceptos**: `useFetch`, loading states, composición de hooks
+- **MultipleCustomHooks**: Integration with Rick & Morty API
+- **CharacterCard**: Character card
+- **Loading**: Loading state
+- **Concepts**: `useFetch`, loading states, hook composition
 
 ### 4️⃣ useRef
 
-- **FocusScreen**: Manejo de focus en inputs
-- **Conceptos**: Referencias al DOM, manipulación directa
+- **FocusScreen**: Input focus management
+- **Concepts**: DOM references, direct manipulation
 
 ### 5️⃣ useLayoutEffect
 
-- **Layout**: Mediciones y efectos de layout
-- **Conceptos**: Layout measurements, diferencia con useEffect
+- **Layout**: Measurements and layout effects
+- **Concepts**: Layout measurements, difference with useEffect
 
-### 6️⃣ Memos y Optimización
+### 6️⃣ Memos & Optimization
 
-- **Memorize**: React.memo para prevenir re-renders
-- **MemoHook**: useMemo para cálculos costosos
-- **CallbackHook**: useCallback para funciones estables
-- **Conceptos**: Optimización, memoización, performance
+- **Memorize**: React.memo to prevent re-renders
+- **MemoHook**: useMemo for expensive calculations
+- **CallbackHook**: useCallback for stable functions
+- **Concepts**: Optimization, memoization, performance
 
-### 7️⃣ Tarea Memo
+### 7️⃣ Memo Task
 
-- **Padre-Hijo**: Ejercicio de optimización
-- **Conceptos**: Props estables, React.memo, useCallback
+- **Padre-Hijo**: Optimization exercise
+- **Concepts**: Stable props, React.memo, useCallback
 
 ### 8️⃣ useReducer
 
-- **TodoApp**: Aplicación completa de TODOs
-- **TodoItem, TodoList, TodoAdd**: Componentes modulares
-- **todoReducer**: Lógica de estado con reducer
-- **Conceptos**: Estado complejo, reducers, actions
+- **TodoApp**: Complete TODO application
+- **TodoItem, TodoList, TodoAdd**: Modular components
+- **todoReducer**: State logic with reducer
+- **Concepts**: Complex state, reducers, actions
 
 ### 9️⃣ useContext
 
-- **MainApp**: App con contexto global
-- **UserContext, UserProvider**: Contexto de usuario
-- **Navbar, HomePage, AboutPage, LoginPage**: Navegación
-- **Conceptos**: Context API, estado global, React Router
+- **MainApp**: App with global context
+- **UserContext, UserProvider**: User context
+- **Navbar, HomePage, AboutPage, LoginPage**: Navigation
+- **Concepts**: Context API, global state, React Router
 
-## 🎯 Scripts Disponibles
+## 🎯 Available Scripts
 
 ```bash
-# Desarrollo
-npm run dev          # Iniciar servidor de desarrollo
+# Development
+npm run dev          # Start development server
 
 # Build
-npm run build        # Crear build de producción
-npm run preview      # Preview del build
+npm run build        # Create production build
+npm run preview      # Preview the build
 
 # Testing
-npm run test         # Ejecutar tests en modo watch
+npm run test         # Run tests in watch mode
 
 # Linting
-npm run lint         # Verificar código con ESLint
+npm run lint         # Verify code with ESLint
 ```
 
 ## 🧪 Testing
 
-El proyecto incluye tests para custom hooks usando Jest y React Testing Library:
+The project includes tests for custom hooks using Jest and React Testing Library:
 
 ```bash
-# Ejecutar todos los tests
+# Run all tests
 npm run test
 
-# Tests incluidos:
+# Included tests:
 # - useCounter.test.js
 # - useForm.test.js
+# - useFetch.test.js
+# - useTodo.test.js
+# - todoReducer.test.js
 ```
 
-### Ejemplo de test:
+### Test Example:
 
 ```javascript
 import { renderHook } from "@testing-library/react";
 import { useCounter } from "../../src/hooks/useCounter";
 
-test("debe incrementar el contador", () => {
+test("should increment the counter", () => {
   const { result } = renderHook(() => useCounter());
   result.current.increment();
   expect(result.current.counter).toBe(1);
 });
 ```
 
-## 🎨 Características
+## 🎨 Features
 
-- ✅ Navegación intuitiva con landing page
-- ✅ Ejemplos prácticos de cada hook
-- ✅ Custom hooks reutilizables
-- ✅ Tests unitarios
-- ✅ Código limpio y comentado
+- ✅ Intuitive navigation with landing page
+- ✅ Practical examples of each hook
+- ✅ Reusable custom hooks
+- ✅ Unit tests
+- ✅ Clean and commented code
 - ✅ Responsive design
-- ✅ Optimización de performance
+- ✅ Performance optimization
 
-## 📖 Recursos de Aprendizaje
+## 📖 Learning Resources
 
-- [Documentación oficial de React](https://react.dev)
+- [Official React Documentation](https://react.dev)
 - [React Hooks](https://react.dev/reference/react)
 - [React Router](https://reactrouter.com)
 - [Testing Library](https://testing-library.com/react)
 
-## 👨‍💻 Autor y Créditos
+## 👨‍💻 Author & Credits
 
-**Estudiante**: Jaguilars5
+**Student**: Jefferson Aguilar
 
-**Instructor del Curso**: [Fernando Herrera](https://fernando-herrera.com/)
+**Course Instructor**: [Fernando Herrera](https://fernando-herrera.com/)
 
-- 🎓 Curso: React de Cero a Experto (Hooks y MERN)
+- 🎓 Course: React de Cero a Experto (Hooks y MERN)
 - 🔗 [DevTalles](https://cursos.devtalles.com/)
 
-## 📄 Licencia
+## 📄 License
 
-Los ejercicios originales son propiedad intelectual de Fernando Herrera y DevTalles. Este repositorio contiene mi implementación personal de dichos ejercicios con fines educativos.
+The original exercises are intellectual property of Fernando Herrera and DevTalles. This repository contains my personal implementation of these exercises for educational purposes.
 
-## 🙏 Agradecimientos
+## 🙏 Acknowledgments
 
-Gracias a **Fernando Herrera** por crear un excelente curso que me permitió aprender y dominar React Hooks.
+Thanks to **Fernando Herrera** for creating an excellent course that allowed me to learn and master React Hooks.
 
 ---
+
+⭐ If this project helped you learn React Hooks, consider giving it a star on GitHub!
+
+**Last updated**: January 2026
+
+**Last updated**: January 2026
 
 ⭐ Si este proyecto te ayudó a aprender React Hooks, considera darle una estrella en GitHub!

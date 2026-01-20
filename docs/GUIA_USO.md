@@ -1,7 +1,11 @@
 # 📘 Guía de Uso - React Hooks App
 
-> 🎓 **Ejercicios del curso de React de Fernando Herrera**  
-> Estas prácticas forman parte del curso "React de Cero a Experto (Hooks y MERN)" de [DevTalles](https://cursos.devtalles.com/)
+> 🎓 **Proyecto Educativo**  
+> Este proyecto fue desarrollado como parte del curso de React de **Fernando Herrera** - [DevTalles](https://cursos.devtalles.com/)
+
+[📖 View in English](./USER_GUIDE.md)
+
+---
 
 ## 🚀 Inicio Rápido
 
@@ -63,6 +67,11 @@ npm run test
 
 - `useCounter.test.js` - Tests del hook useCounter
 - `useForm.test.js` - Tests del hook useForm
+- `useFetch.test.js` - Tests del hook useFetch
+- `useTodo.test.js` - Tests del hook useTodo
+- `todoReducer.test.js` - Tests del todoReducer
+
+---
 
 ## 🎨 Características de cada Práctica
 
@@ -145,6 +154,12 @@ Hook para manejar contadores con incremento, decremento y reset.
 const { counter, increment, decrement, reset } = useCounter(10);
 ```
 
+**Retorna**:
+- `counter`: Valor actual del contador
+- `increment(value)`: Incrementar por valor (default 1)
+- `decrement(value)`: Decrementar por valor (default 1)
+- `reset()`: Resetear al valor inicial
+
 ### `useFetch(url)`
 
 Hook para realizar peticiones HTTP.
@@ -152,6 +167,11 @@ Hook para realizar peticiones HTTP.
 ```javascript
 const { data, isLoading, hasError } = useFetch("https://api.example.com/data");
 ```
+
+**Retorna**:
+- `data`: Datos de la respuesta
+- `isLoading`: Estado de carga
+- `hasError`: Objeto de error si ocurre
 
 ### `useForm(initialForm)`
 
@@ -164,13 +184,87 @@ const { formState, onInputChange, onResetForm } = useForm({
 });
 ```
 
+**Retorna**:
+- `formState`: Estado actual del formulario
+- `onInputChange(event)`: Manejador de cambios en inputs
+- `onResetForm()`: Resetear formulario a valores iniciales
+
 ### `useTodo()`
 
 Hook para manejar lista de TODOs.
 
 ```javascript
-const { todos, handleNewTodo, handleDeleteTodo, handleToggleTodo } = useTodo();
+const {
+  todos,
+  todosCount,
+  pendingTodosCount,
+  handleNewTodo,
+  handleDeleteTodo,
+  handleToggleTodo
+} = useTodo();
 ```
+
+**Retorna**:
+- `todos`: Array de TODOs
+- `todosCount`: Número total de TODOs
+- `pendingTodosCount`: Número de TODOs pendientes
+- `handleNewTodo(todo)`: Agregar un nuevo TODO
+- `handleDeleteTodo(id)`: Eliminar un TODO
+- `handleToggleTodo(id)`: Cambiar estado de completado
+
+---
+
+## 🔐 Seguridad Implementada
+
+### Gestión de Estado
+
+- ✅ Estado local con useState
+- ✅ Estado complejo con useReducer
+- ✅ Estado global con useContext
+- ✅ Persistencia de estado en localStorage (useTodo)
+
+### Optimización de Performance
+
+- ✅ Memoización con useMemo
+- ✅ Prevención de re-renders con React.memo
+- ✅ Memoización de funciones con useCallback
+- ✅ Gestión eficiente de dependencias
+
+### Testing
+
+- ✅ Tests unitarios para custom hooks
+- ✅ Tests de renderizado
+- ✅ Tests de actualización de estado
+- ✅ Cobertura de tests
+
+---
+
+## 💡 Tips de Uso
+
+### ¿Cuándo usar useState vs useReducer?
+
+- **useState**: Para estado simple e independiente
+- **useReducer**: Para estado complejo con múltiples acciones relacionadas
+
+### ¿Cuándo optimizar con memo?
+
+- Cuando un componente se re-renderiza innecesariamente
+- Cuando los cálculos son costosos
+- Cuando se pasan callbacks a componentes hijos
+
+### ¿Cómo evitar loops infinitos en useEffect?
+
+- Especificar correctamente las dependencias
+- Usar funciones de cleanup
+- Evitar actualizaciones de estado innecesarias
+
+### ¿Cuándo usar useRef?
+
+- Para acceder a elementos DOM directamente
+- Para guardar valores mutables que no causan re-renders
+- Para guardar valores previos
+
+---
 
 ## 📁 Estructura de Archivos
 
@@ -190,34 +284,57 @@ src/
 └── [01-09]-*/            # Carpetas de prácticas
 ```
 
-## 💡 Tips
+---
 
-1. **Navega libremente**: Usa el landing page para explorar las diferentes prácticas
-2. **Revisa el código**: Cada componente está documentado con comentarios
-3. **Experimenta**: Modifica los valores y observa los cambios
-4. **Aprende progresivamente**: Sigue el orden recomendado para mejor comprensión
-5. **Ejecuta los tests**: Aprende cómo testear custom hooks
+## 🐛 Solución de Problemas
 
-## 🐛 Troubleshooting
+### Problemas Comunes
 
-### Error: Module not found
+#### La app no inicia
 
 ```bash
+# Limpiar node_modules y reinstalar
+rm -rf node_modules package-lock.json
 npm install
 ```
 
-### Puerto 5173 ocupado
-
-Vite usará automáticamente el siguiente puerto disponible
-
-### Problemas de hot reload
+#### Los tests no corren
 
 ```bash
-# Detener el servidor (Ctrl+C)
-npm run dev
+# Asegurate de que Jest esté instalado
+npm install --save-dev jest @testing-library/react @testing-library/react-hooks
 ```
 
+#### El hot reload no funciona
+
+- Verifica que estés usando Vite correctamente
+- Reinicia el servidor de desarrollo
+- Limpia el caché del navegador
+
+---
+
 ## 📖 Recursos Adicionales
+
+- [Documentación de React](https://react.dev)
+- [React Hooks](https://react.dev/reference/react)
+- [React Router](https://reactrouter.com)
+- [Testing Library](https://testing-library.com/react)
+
+---
+
+## 📧 Soporte
+
+Si encuentras problemas o tienes preguntas:
+
+- Revisa la [documentación principal](../README.md)
+- Consulta el [código fuente](https://github.com/Jaguilars5/05-hoock-app)
+- Contacta al desarrollador: [@Jaguilars5](https://github.com/Jaguilars5)
+
+---
+
+**Última actualización**: Enero 2026
+
+⭐ ¡Disfruta aprendiendo React Hooks!
 
 - [Documentación de React](https://react.dev)
 - [Hooks API Reference](https://react.dev/reference/react)

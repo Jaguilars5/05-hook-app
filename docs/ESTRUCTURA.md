@@ -3,34 +3,49 @@
 > 🎓 **Proyecto Educativo**  
 > Ejercicios y prácticas del curso de React de **Fernando Herrera** - [DevTalles](https://cursos.devtalles.com/)
 
+[📖 View in English](./PROJECT_STRUCTURE.md)
+
+---
+
 ## 📊 Árbol de Directorios Completo
 
 ```
 05-hoock-app/
 │
-├── 📄 README.md                    # Documentación principal
-├── 📄 GUIA_USO.md                  # Guía de uso detallada
+├── 📄 README.md                    # Documentación principal (English)
 ├── 📄 SCREENSHOTS.md               # Capturas de pantalla
-├── 📄 ESTRUCTURA.md                # Este archivo
 │
 ├── 📦 package.json                 # Dependencias y scripts
 ├── 📦 vite.config.js               # Configuración de Vite
 ├── 📦 babel.config.cjs             # Configuración de Babel
 ├── 📦 jest.config.cjs              # Configuración de Jest
 ├── 📦 jest.setup.cjs               # Setup de Jest
+├── 📦 .eslintrc.cjs                # Configuración de ESLint
 │
 ├── 📄 index.html                   # HTML principal
 │
+├── 📁 docs/                        # Documentación adicional
+│   ├── README_ES.md                # Documentación en español
+│   ├── GUIA_USO.md                 # Guía de uso detallada (ES)
+│   ├── USER_GUIDE.md               # Guía de uso (EN)
+│   ├── ESTRUCTURA.md               # Este archivo (ES)
+│   ├── PROJECT_STRUCTURE.md        # Estructura del proyecto (EN)
+│   ├── CURSO.md                    # Info del curso (ES)
+│   └── COURSE.md                   # Info del curso (EN)
+│
 ├── 📁 public/                      # Archivos públicos estáticos
+│   └── screenshots/                # Capturas de la aplicación
 │
 ├── 📁 src/                         # Código fuente
 │   │
 │   ├── 📄 main.jsx                 # Punto de entrada
 │   ├── 📄 index.css                # Estilos globales
 │   ├── 📄 Hook-App.jsx             # Componente App (legacy)
+│   ├── 📄 Hoock-App.jsx            # Componente App (legacy)
 │   │
 │   ├── 📄 LandingPage.jsx          # ⭐ Página principal
 │   ├── 📄 landing.css              # Estilos del landing
+│   ├── 📄 practices.css            # Estilos de prácticas
 │   ├── 📄 AppRouter.jsx            # ⭐ Configuración de rutas
 │   │
 │   ├── 📁 components/              # ⭐ Componentes compartidos
@@ -52,10 +67,12 @@
 │   ├── 📁 02-useEffect/            # ⚡ Práctica 2
 │   │   ├── SimpleForm.jsx
 │   │   ├── FormWithCustomHook.jsx
+│   │   ├── FromWithCustomHoock.jsx
 │   │   └── Message.jsx
 │   │
 │   ├── 📁 03-examples/             # 🚀 Práctica 3
 │   │   ├── MultipleCustomHooks.jsx
+│   │   ├── MultipleCustomHoocks.jsx
 │   │   └── Components/
 │   │       ├── CharacterCard.jsx
 │   │       ├── Loading.jsx
@@ -70,7 +87,9 @@
 │   ├── 📁 06-memos/                # ⚡ Práctica 6
 │   │   ├── Memorize.jsx
 │   │   ├── MemoHook.jsx
+│   │   ├── MemoHoock.jsx
 │   │   ├── CallbackHook.jsx
+│   │   ├── CallbackHoock.jsx
 │   │   └── components/
 │   │       ├── Small.jsx
 │   │       └── ShowIncrement.jsx
@@ -102,8 +121,15 @@
 └── 📁 test/                        # 🧪 Tests
     └── hooks/
         ├── useCounter.test.js
-        └── useForm.test.js
+        ├── useForm.test.js
+        ├── useFetch.test.js
+        ├── useTodo.test.js
+        └── todoReducer.test.js
 ```
+
+---
+
+---
 
 ## 🎯 Archivos Clave
 
@@ -132,7 +158,28 @@
 | `useForm`    | Manejo de formularios |
 | `useTodo`    | Gestión de TODOs      |
 
+---
+
 ## 📋 Flujo de la Aplicación
+
+### Flujo de Inicio
+
+1. **index.html** carga `main.jsx`
+2. **main.jsx** renderiza la aplicación con React Router
+3. **AppRouter** define las rutas:
+   - `/` → LandingPage
+   - `/useState` → CounterWithCustomHook
+   - `/useEffect` → FormWithCustomHook
+   - `/examples` → MultipleCustomHooks
+   - `/useRef` → FocusScreen
+   - `/useLayoutEffect` → Layout
+   - `/memos` → Memorize
+   - `/memo-hook` → MemoHook
+   - `/callback-hook` → CallbackHook
+   - `/tarea-memo` → Padre
+   - `/useReducer` → TodoApp
+   - `/useContext` → MainApp
+4. **Cada práctica** usa custom hooks y muestra ejemplos específicos
 
 ```
 ┌─────────────┐
@@ -149,30 +196,43 @@
 │ AppRouter   │ ──► Routes
 └──────┬──────┘
        │
-       ├──► / ──────────────► LandingPage
+       ▼
+┌─────────────┐
+│ LandingPage │ ──► Tarjetas de Prácticas
+└──────┬──────┘
        │
-       ├──► /usestate ──────► CounterApp
-       ├──► /useeffect ─────► SimpleForm
-       ├──► /examples ──────► MultipleCustomHooks
-       ├──► /useref ────────► FocusScreen
-       ├──► /uselayouteffect► Layout
-       ├──► /memos ─────────► Memorize
-       ├──► /tarea-memo ────► Padre
-       ├──► /usereducer ────► TodoApp
-       └──► /usecontext/* ──► MainApp
-                                  │
-                                  ├─► / ────► HomePage
-                                  ├─► /about ► AboutPage
-                                  └─► /login ► LoginPage
+       ▼
+┌─────────────────────┐
+│ Práctica Individual │ ──► Componentes de Hook
+└─────────────────────┘
 ```
+
+---
 
 ## 🏗️ Patrones de Arquitectura
 
-### 1. Organización por Features
+### 1. Modular por Features
 
-Cada práctica está en su propia carpeta con sus componentes relacionados.
+Cada práctica está en su propia carpeta con todos los componentes necesarios.
 
-### 2. Custom Hooks Centralizados
+### 2. Custom Hooks para Lógica Reutilizable
+
+Lógica separada de la UI en hooks reutilizables.
+
+### 3. Componentes Compartidos
+
+Componentes comunes como `BackButton` y `PracticeLayout`.
+
+### 4. Enrutamiento Centralizado
+
+Todas las rutas definidas en `AppRouter.jsx`.
+
+### 5. Componentes Presentacionales y Contenedores
+
+- **Presentacionales**: Componentes de UI pura
+- **Contenedores**: Pages que usan hooks
+
+---
 
 Todos los hooks reutilizables en la carpeta `hooks/`.
 
@@ -193,58 +253,215 @@ Componentes usados en múltiples lugares en `components/`.
 
 - **Componentes**: PascalCase (`LandingPage.jsx`)
 - **Hooks**: camelCase con prefijo 'use' (`useCounter.js`)
+- **Funciones**: camelCase (`handleIncrement`)
+- **Constantes**: camelCase o UPPER_SNAKE_CASE
 - **CSS**: kebab-case (`landing.css`)
-- **Constantes**: UPPER_SNAKE_CASE
 
 ### Estructura de Componentes
 
 ```jsx
 // 1. Imports
-import { useState } from "react";
-import { CustomHook } from "./hooks";
+import { useState } from 'react';
+import { useCounter } from '../hooks/useCounter';
 
 // 2. Componente
 export const MyComponent = () => {
-  // 3. Hooks
+  // 3. Custom hooks
+  const { counter, increment } = useCounter();
+  
+  // 4. State hooks
   const [state, setState] = useState();
-
-  // 4. Funciones
+  
+  // 5. Funciones manejadoras
   const handleClick = () => {};
-
-  // 5. Return/JSX
-  return <div>{/* contenido */}</div>;
+  
+  // 6. Return/JSX
+  return (
+    <div>
+      {/* contenido */}
+    </div>
+  );
 };
 ```
 
-## 🔄 Flujo de Datos
+---
 
-### Landing → Práctica
+## 🔄 Patrones de Hooks
 
+### useCounter
+
+```javascript
+export const useCounter = (initialValue = 0) => {
+  const [counter, setCounter] = useState(initialValue);
+  
+  const increment = (value = 1) => {
+    setCounter(counter + value);
+  };
+  
+  const decrement = (value = 1) => {
+    setCounter(counter - value);
+  };
+  
+  const reset = () => {
+    setCounter(initialValue);
+  };
+  
+  return {
+    counter,
+    increment,
+    decrement,
+    reset
+  };
+};
 ```
-Usuario hace click en tarjeta
-    ↓
-React Router navega a la ruta
-    ↓
-AppRouter renderiza el componente
-    ↓
-PracticeLayout envuelve la práctica
-    ↓
-Se muestra el componente con BackButton
+
+### useFetch
+
+```javascript
+export const useFetch = (url) => {
+  const [state, setState] = useState({
+    data: null,
+    isLoading: true,
+    hasError: null
+  });
+  
+  useEffect(() => {
+    getFetch();
+  }, [url]);
+  
+  const getFetch = async () => {
+    // lógica de fetch
+  };
+  
+  return {
+    data: state.data,
+    isLoading: state.isLoading,
+    hasError: state.hasError
+  };
+};
 ```
 
-### Práctica → Landing
+### useForm
 
-```
-Usuario hace click en BackButton
-    ↓
-navigate('/') se ejecuta
-    ↓
-React Router navega a '/'
-    ↓
-LandingPage se renderiza
+```javascript
+export const useForm = (initialForm = {}) => {
+  const [formState, setFormState] = useState(initialForm);
+  
+  const onInputChange = ({ target }) => {
+    const { name, value } = target;
+    setFormState({
+      ...formState,
+      [name]: value
+    });
+  };
+  
+  const onResetForm = () => {
+    setFormState(initialForm);
+  };
+  
+  return {
+    ...formState,
+    formState,
+    onInputChange,
+    onResetForm
+  };
+};
 ```
 
-## 📊 Dependencias por Práctica
+---
+
+## 📊 Dependencias por Módulo
+
+### useState (01)
+- React core
+
+### useEffect (02)
+- React core
+- Hook `useForm`
+
+### Examples (03)
+- React core
+- Hook `useFetch`
+- API de Rick & Morty
+
+### useRef (04)
+- React core
+
+### useLayoutEffect (05)
+- React core
+- Hook `useFetch`
+
+### Memos (06)
+- React core
+- Hook `useCounter`
+
+### Tarea Memo (07)
+- React core
+- React.memo
+- useCallback
+
+### useReducer (08)
+- React core
+- Hook `useTodo`
+- localStorage
+
+### useContext (09)
+- React core
+- React Router DOM
+- useContext
+
+---
+
+## 🚀 Puntos de Entrada
+
+### Desarrollo
+
+```bash
+npm run dev
+# Inicia servidor de Vite en http://localhost:5173
+```
+
+### Testing
+
+```bash
+npm run test
+# Ejecuta Jest en modo watch
+```
+
+### Build
+
+```bash
+npm run build
+# Crea build optimizado de producción en /dist
+```
+
+---
+
+## 🔐 Seguridad
+
+### Mejores Prácticas
+
+- ✅ Sin credenciales hardcodeadas
+- ✅ Gestión correcta de dependencias en useEffect
+- ✅ Validación de inputs en formularios
+- ✅ Manejo de errores en peticiones HTTP
+- ✅ Consideraciones de seguridad en localStorage
+
+---
+
+## 📖 Recursos Adicionales
+
+- [Documentación de React](https://react.dev)
+- [React Hooks](https://react.dev/reference/react)
+- [React Router](https://reactrouter.com)
+- [Guía de Vite](https://vitejs.dev/guide/)
+- [Documentación de Jest](https://jestjs.io)
+
+---
+
+**Última actualización**: Enero 2026
+
+⭐ Para más información, consulta el [README principal](../README.md)
 
 | Práctica           | Hooks Usados                  | Librerías        |
 | ------------------ | ----------------------------- | ---------------- |
