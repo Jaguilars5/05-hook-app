@@ -1,6 +1,6 @@
 import React from "react";
-// import { memo } from "react";
+
 export const Small = React.memo(({ value = 0 }) => {
-  console.log("No");
+  console.log("🔄 Small component re-renderizado");
   return <small>{value}</small>;
 });

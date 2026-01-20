@@ -2,22 +2,25 @@ import { useRef } from "react";
 
 export const FocusScreen = () => {
   const inputRef = useRef();
-  const onclick = () => {
+
+  const onClick = () => {
     inputRef.current.select();
   };
+
   return (
-    <>
-      <h1>Focus Screen</h1>
+    <div className="practice-container">
+      <h1>useRef - Focus Screen</h1>
       <hr />
+      <p>Haz clic en el botón para seleccionar el texto del input:</p>
       <input
         ref={inputRef}
         type="text"
         placeholder="Ingrese su nombre"
         className="form-control"
       />
-      <button onClick={onclick} className="btn btn-primary mt-2">
-        Foco
+      <button onClick={onClick} className="btn btn-primary mt-2">
+        Seleccionar Input
       </button>
-    </>
+    </div>
   );
 };

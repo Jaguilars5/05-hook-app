@@ -1,14 +1,23 @@
-export const CharacterCard = ({ name, species, image }) => {
-    return (
-      <div className="card mb-3" style={{ maxWidth: '18rem' }}>
-        <div className="card-header">Detalles del Personaje</div>
-        <div className="card-body">
-          <blockquote className="blockquote text-end mb-0">
-            <p className="mb-1">{name}</p>
-            <footer className="blockquote-footer">{species}</footer>
-            <img src={image} alt="nada" className="img-fluid mx-auto d-block mb-3" />
-          </blockquote>
-        </div>
+export const CharacterCard = ({ character }) => {
+  if (!character) return null;
+
+  const { name, species, image, status, origin } = character;
+
+  return (
+    <div className="character-card">
+      <img src={image} alt={name} />
+      <h2 className="character-name">{name}</h2>
+      <div className="character-info">
+        <p>
+          <strong>Estado:</strong> {status}
+        </p>
+        <p>
+          <strong>Especie:</strong> {species}
+        </p>
+        <p>
+          <strong>Origen:</strong> {origin?.name || "Desconocido"}
+        </p>
       </div>
-    );
-  };
+    </div>
+  );
+};

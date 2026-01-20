@@ -1,7 +1,7 @@
 import React from "react";
 
 export const ShowIncrement = React.memo(({ increment }) => {
-  console.log("Angel Gay");
+  console.log("🔄 ShowIncrement component re-renderizado");
 
   return (
     <button
@@ -10,7 +10,7 @@ export const ShowIncrement = React.memo(({ increment }) => {
         increment(5);
       }}
     >
-      Incrementar
+      Incrementar +5
     </button>
   );
 });

@@ -1,15 +1,15 @@
 import React from "react";
 
-React
 export const Hijo = React.memo(({ numero, incrementar }) => {
-  console.log("  Me volví a generar :(  ");
+  console.log(`🔄 Hijo ${numero} re-renderizado`);
 
   return (
     <button
-      className="btn btn-primary mr-3"
+      className="btn btn-primary"
       onClick={() => incrementar(numero)}
+      style={{ minWidth: "80px", fontSize: "1.2rem" }}
     >
-      {numero}
+      + {numero}
     </button>
   );
 });

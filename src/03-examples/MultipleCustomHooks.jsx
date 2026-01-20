@@ -1,7 +1,7 @@
 import { useCounter, useFetch } from "../hooks";
 import { CharacterCard, Loading } from "./Components";
 
-export const MultipleCustomHoocks = () => {
+export const MultipleCustomHooks = () => {
   const { Aumentar, counter, Decrementar } = useCounter(1);
   const { data, isLoading, hasError } = useFetch(
     `https://rickandmortyapi.com/api/character/${counter}`,

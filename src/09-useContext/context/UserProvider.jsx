@@ -1,13 +1,11 @@
+import { useState } from "react";
 import { UserContext } from "./UserContext";
-const user={
-    id:123,
-    name:"Jefferson",
-    email:"jegor.28.a@gmail.com"
-}
-UserContext;
+
 export const UserProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+
   return (
-    <UserContext.Provider value={{ hola: "Mundo", user:user }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );

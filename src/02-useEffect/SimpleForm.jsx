@@ -1,35 +1,45 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Message } from "./Message";
+
 export const SimpleForm = () => {
-  const [fromState, setfromState] = useState({
+  const [formState, setFormState] = useState({
     username: "Jefferson",
     email: "jaguilars5@unemi.edu.ec",
   });
-  const { username, email } = fromState;
+
+  const { username, email } = formState;
+
   const onInputChange = ({ target }) => {
     const { name, value } = target;
-    setfromState({
-      ...fromState,
+    setFormState({
+      ...formState,
       [name]: value,
     });
   };
-  useEffect(() => {
-    // console.log("useEffect");
-  }, []);
-  useEffect(() => {
-    // console.log("fromState cambio");
-  }, [fromState]);
-  useEffect(() => {
-    // console.log("username cambio");
-  }, [username]);
 
   return (
-    <>
-      <h1>Simple form</h1>
+    <div className="practice-container">
+      <h1>Formulario Simple</h1>
+      <div className="alert alert-info">
+        <p>
+          <strong>📚 ¿Qué aprenderás aquí?</strong>
+        </p>
+        <ul>
+          <li>
+            Manejo de estado con <code>useState</code>
+          </li>
+          <li>Formularios controlados en React</li>
+          <li>Renderizado condicional</li>
+        </ul>
+        <p>
+          <strong>💡 Prueba esto:</strong> Escribe "Christina" en el campo de
+          username para ver un componente condicional.
+        </p>
+      </div>
       <hr />
       <input
         type="text"
-        className="from-control"
+        className="form-control"
         placeholder="Username"
         name="username"
         value={username}
@@ -37,7 +47,7 @@ export const SimpleForm = () => {
       />
       <input
         type="email"
-        className="from-control mt-2"
+        className="form-control mt-2"
         placeholder="user@unemi.edu.ec"
         name="email"
         value={email}
@@ -45,6 +55,6 @@ export const SimpleForm = () => {
       />
 
       {username === "Christina" && <Message />}
-    </>
+    </div>
   );
 };

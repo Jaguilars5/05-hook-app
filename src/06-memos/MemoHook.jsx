@@ -9,7 +9,7 @@ const Iteracion = (value = 100) => {
   return `Valor memorizado: ${value}`;
 };
 
-export const MemoHoock = () => {
+export const MemoHook = () => {
   const { Aumentar, counter, Reset } = useCounter(40);
   const [show, setShow] = useState(true);
   const memorizedValue = useMemo(() => Iteracion(counter), [counter]);
