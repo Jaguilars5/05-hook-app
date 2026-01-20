@@ -228,7 +228,3 @@ Thanks to **Fernando Herrera** for creating an excellent course that allowed me 
 ⭐ If this project helped you learn React Hooks, consider giving it a star on GitHub!
 
 **Last updated**: January 2026
-
-**Last updated**: January 2026
-
-⭐ Si este proyecto te ayudó a aprender React Hooks, considera darle una estrella en GitHub!
